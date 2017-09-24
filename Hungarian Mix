@@ -1,0 +1,39 @@
+function eventChatCommand(name,command)
+if command=="ölelés" then
+ui.addTextArea(1, "<ROSE><p align='center'><font size='14'><b>".. name..  "<N> szeretne egy ölelést. ", nil , 200, 30, 400, 23)
+end
+
+if command=="sexy" then
+ui.addTextArea(1, "<ROSE><p align='center'><font size='14'><b>".. name..  "<N> nagyon sexy. ", nil , 200, 30, 400, 23)
+end
+
+if command=="boldog" then
+ui.addTextArea(1, "<ROSE><p align='center'><font size='14'><b>".. name..  "<N> nagyon boldog. ", nil , 200, 30, 400, 23)
+end
+
+if command=="szomorú" then
+ui.addTextArea(1, "<ROSE><p align='center'><font size='14'><b>".. name..  "<N> nagyon szomorú. ", nil , 200, 30, 400, 23)
+end
+
+if command=="kill" then
+tfm.exec.killPlayer(name)
+elseif command=="snow" then
+tfm.exec.snow()
+elseif command=="snowoff" then
+tfm.exec.snow(1, 0)
+elseif command=="clicktp" then
+system.bindMouse(name, true)
+end
+
+function eventMouse(name, x, y)
+tfm.exec.movePlayer(name, x, y, false, 0, 1, false)
+end
+end
+
+function eventPlayerLeft(name)
+ui.addTextArea(1, "<ROSE><p align='center'><font size='14'><b>".. name..  "<N> elhagyta a törzsházat. ", nil , 200, 30, 400, 23)
+end
+
+function eventNewPlayer(name)
+ui.addTextArea(1, "<ROSE><p align='center'><font size='14'><b>".. name..  "<N> belépett a törzsházba. ", nil , 200, 30, 400, 23)
+end
