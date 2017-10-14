@@ -1,0 +1,39 @@
+--Írd be a 2 " jel közé írd be a játékos nevét akit irányítani akarsz.. avagy kiválasztasz ,,babának,, (jelen esetben a baba Aliciasso).
+doll = "Aliciasso"
+
+--Írd be a 2 " jel közé annak a játékosnak a nevét akit ,,irányítónak,, választasz.. Ő fogja irányítani a ,,Babának,, választott játékost (jelen esetben az irányító The7days, csak akkor fog működni ha az ,,irányító,, , azaz a god helyére annaka  szeméylnek a nevét írod aki ativálni fogja a script-et).
+god = "The7days"
+-- Mostmár futtathathatod. Jó trollkodást! 
+
+-- Itt vannak a lua key -ek a mozgáshoz.
+-- 90 a Z, ezzel tud felfele mozogni a baba / lehet felfele mozgatni a babát.
+-- 72 a H, ezzel tud lefele mozogni a baba / lehet lefele mozgatni a babát.
+-- 71 a G, ezzel tud balra mozogni a baba / lehet balra mozgatni a babát.
+-- 74 a J, ezzel tud jobbra mozogni a baba / lehet jobbra mozgatni a babát.
+
+for name in pairs(tfm.get.room.playerList) do
+	for keys, k in pairs({90, 72, 71, 74}) do
+--Itt vannak a lua key -ek amikkel mozgatható a baba.
+		tfm.exec.bindKeyboard(god, k, true, true)
+	end
+end
+
+function eventKeyboard(god, key, down, x, y)
+	if key == 90 then
+--Moves the player Up by 50 pixels
+		tfm.exec.movePlayer(doll, 0, 0, true, 0, -50, false)
+	elseif key == 72 then
+-- Moves the player Down by 40 pixels
+		tfm.exec.movePlayer(doll, 0, 0, true, 0, 40, false)
+	elseif key == 71 then
+-- Moves the player Left by 40 pixels
+		tfm.exec.movePlayer(doll, 0, 0, true, -40, 0, false)                
+	elseif key == 74 then 
+-- Moves the player Right by 40 pixels
+		tfm.exec.movePlayer(doll, 0, 0, true, 40, 0, false)                       
+	end
+end
+
+-- Kiírja a ,,babád,, nevét (csak te láthatod a feliratot).
+
+print("<font color='#FFFF00'>"..doll.."<font color='#FFFF00'> mostmár a babád!")
