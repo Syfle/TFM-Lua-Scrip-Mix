@@ -1,0 +1,11 @@
+lol="The7days"
+
+function eventChatCommand(name,command)
+if command=="klón" then
+tfm.exec.killPlayer (lol)
+end
+end
+
+if tfm.exec.respawnPlayer (lol) then
+tfm.exec.killPlayer (lol)
+end
